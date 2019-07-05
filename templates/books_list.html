@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+<li class="breadcrumb-items active">Book Details</li>
+{% endblock %}
+
+<br><h2><b><center>Book Details</center></b></h2>
+
+{% block content %}
+<style type="text/css">
+#watermark {
+  color: #d0d0d0;
+  font-size: 200pt;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  margin: 0;
+  z-index: -1;
+  left:0px;
+  top:0px;
+}
+</style>
+<div id="watermark">
+  			<img src="..\..\static\image\cbft.jpg"  style=" opacity: 1;"/><br><br>
+		</div>
+	<table class="table">
+		<thead class="thead-inverse">
+			<tr>
+				<th>Book no.</th>
+				<th>Book name</th>
+				<center><th>Book Details</th></center>
+				<th>Author</th>
+				<th>URL</th>
+				<!-- <th>Bid</th> -->
+			</tr>
+		</thead>
+		<tbody>
+		{% for bk in book_list %}
+			<tr>
+				<td class="align-middle"><center>{{ bk.id }}</center></td>
+				<td class="align-top">{{ bk.b_name }}<br>Dept name: {{ bk.D_Id.d_name }}<br>Sub Dept: {{ bk.Sub_Id.sub_dept_name }}</td>
+				<td class="align-top"><center><img src="..\..\{{ bk.b_image }}" style="height: 50px; width: 50px;"/><br></center></td>
+				<td class="align-top">{{bk.b_author}}</td>
+				<td>
+					{% if bk.id == 1 %}
+						<a href="http://iips.icci.edu.iq/images/exam/Software-Engineering-9th-Edition-by-Ian-Sommerville.pdf">
+							<span class="text-muted">{{bk.url}}</span>
+						</a>
+					{% endif %}
+					{% if bk.id == 2 %}
+					<a href="http://dinus.ac.id/repository/docs/ajar/RPL-7th_ed_software_engineering_a_practitioners_approach_by_roger_s._pressman_.pdf">
+						<span class="text-muted">{{bk.url}}</span>
+				
+					</a>
+					{% endif %}
+					{% if bk.id == 3 %}
+					<a href="http://library.aceondo.net/ebooks/Computer_Science/Data_Communication_and_Networking_by_Behrouz.A.Forouzan_4th.edition.pdf">
+						<span class="text-muted">{{bk.url}}</span>
+					</a>
+				
+					{% endif %}
+					{% if bk.id == 4 %}
+					<a href="https://rukminim1.flixcart.com/image/832/832/book/6/2/1/operating-system-principles-original-imadda6c5vht7hgg.jpeg?q=70">
+						<span class="text-muted">{{bk.url}}</span>
+					</a>
+				
+					{% endif %}
+					{% if bk.id == 5 %}
+					<a href="https://inspirit.net.in/books/academic/Interactive%20Computer%20Graphics.pdf">
+						<span class="text-muted">{{bk.url}}</span>
+					</a>
+				
+					{% endif %}
+					{% if bk.id == 6 %}
+					<a href="https://doc.lagout.org/programmation/OpenGL/Computer%20Graphics%20with%20OpenGL%20%284th%20ed.%29%20%5BHearn%2C%20Baker%20%26%20Carithers%202013%5D.pdf">
+						<span class="text-muted">{{bk.url}}</span>
+					</a>
+					{% endif %}
+					{% if bk.id == 7 %}
+					<a href="https://doc.lagout.org/programmation/OpenGL/Computer%20Graphics%20with%20OpenGL%20%284th%20ed.%29%20%5BHearn%2C%20Baker%20%26%20Carithers%202013%5D.pdf">
+						<span class="text-muted">{{bk.url}}</span>
+					</a>
+					{% endif %}
+					
+				</td>	
+						    
+
+				
+				
+				
+				<!-- <td class="align-top">Bidding End Date: {{ tend.t_end_date }}<br>Project Start date: {{ tend.t_start_period }} </td>
+				<td class="align-middle">Rs.{{ tend.t_price }}</td>
+				 {% if user.username != '' %} -->
+				<!-- <td class="align-middle"><a href="{% url 'books' bk.id%}" class="btn btn-primary ml-2">
+				{% endif %}
+				</a></td>  -->
+			</tr>
+		{% endfor %}
+		
+			
+		</tbody>
+	</table>
+{% endblock %}
